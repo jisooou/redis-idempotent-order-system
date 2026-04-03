@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 public class OrderRequestDto {
-    @NotBlank(message = "상품명을 작성해야 합니다.")
+    @NotBlank(message = "상품명은 필수입니다.")
     private String productName;
 
     @Min(value = 1, message = "수량은 1개 이상이어야 합니다.")
