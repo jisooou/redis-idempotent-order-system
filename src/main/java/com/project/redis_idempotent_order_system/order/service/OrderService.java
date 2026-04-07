@@ -16,7 +16,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
 
     @Transactional
-    public OrderResponseDto createOrder(OrderRequestDto orderRequest) {
+    public OrderResponseDto createOrder(String idempotencyKey, OrderRequestDto orderRequest) {
         Order order = Order.builder()
                 .userId(1L)
                 .productName(orderRequest.getProductName())

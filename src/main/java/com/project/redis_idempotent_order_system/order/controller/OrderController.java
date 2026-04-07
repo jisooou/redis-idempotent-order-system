@@ -14,8 +14,11 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping
-    public OrderResponseDto createOrder(@Valid @RequestBody OrderRequestDto orderRequest) {
-        return orderService.createOrder(orderRequest);
+    public OrderResponseDto createOrder(
+            @RequestHeader("Idempotency-Key") String idempotencyKey,
+            @Valid @RequestBody OrderRequestDto orderRequest
+    ) {
+        return orderService.createOrder(idempotencyKey, orderRequest);
     }
 
     @GetMapping("/{id}")
