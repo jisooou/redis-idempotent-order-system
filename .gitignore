@@ -37,4 +37,4 @@ out/
 .vscode/
 
 # Spring config
-src/main/resources/application*.yml
+src/main/resources/
